@@ -4,7 +4,121 @@
         <title>MikeMcCaughan.com</title>
         <style>
             * { box-sizing: border-box; }
-
+            html {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                --color-light: #d8dbe2;
+                --color-dark: #1b1b1e;
+                --color-blue: #58a4b0;
+                --color-gray: #a9bcd0;
+            }
+            html,body { 
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                --padding-sides: 3rem;
+                --neg-padding-sides: -3rem;
+                background-color: var(--color-light);
+                color: var(--color-dark);
+                padding: 0 var(--padding-sides);
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                flex-flow: column nowrap;
+            }
+            header { 
+                background-color: var(--color-blue);
+                color: var(--color-light);
+                padding: 1rem var(--padding-sides);
+                margin: 0 var(--neg-padding-sides);
+                flex: 1 1 auto;
+            }
+            footer { 
+                background-color: var(--color-dark);
+                color: var(--color-gray);
+                padding: 1rem var(--padding-sides);
+                margin: 0 var(--neg-padding-sides);
+                flex: 1 1 auto;
+            }
+            footer > p {
+                line-height: 1.458;
+                margin: 0.5rem 0;
+                padding: 0;
+            }
+            small {
+                line-height: 1;
+                font-size: 0.75rem;
+            }
+            main {
+                flex: 4 4 100%;
+                display: flex;
+                flex-flow: column nowrap;
+            }
+            main > p {
+                --line-height: 1.458;
+                flex: 1 1 var(--line-height)rem;
+                line-height: var(--line-height);
+                max-height: var(--line-height)rem;
+            }
+            main > ul {
+                flex: 4 4 auto;
+                display: flex;
+                flex-flow: row wrap;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                text-indent: 0;
+                overflow-y: auto;
+            }
+            main > ul > li {
+                list-style-type: none;
+            }
+            main > ul > li:nth-child(odd) {
+                flex: 1 1 10%;
+            }            
+            main > ul > li:nth-child(even) {
+                flex: 1 1 90%;
+            }
+            main > ul {
+                --height-by-years: calc(100%/75);
+            }
+            .year-1 {
+                min-height: var(--height-by-years);
+            }
+            .year-2 {
+                min-height: calc(var(--height-by-years) * 2);
+            }
+            .year-7 {
+                min-height: calc(var(--height-by-years) * 7);
+            }
+            .year-10 {
+                min-height: calc(var(--height-by-years) * 10);
+            }
+            .year-11 {
+                min-height: calc(var(--height-by-years) * 11);
+            }
+            figure {
+                float: right;
+                height: 100%;
+                max-width: 147px;
+                margin: 0 var(--padding-sides);
+            }
+            figcaption {
+                font-size: 0.6rem;
+                min-height: calc(var(--height-by-years) * 7);
+            }
+            figure a {
+                display: block;
+                height: calc(100% - 1.458rem);
+                background-size: cover;
+                background-position-y: 100%;
+            }
+            figure a.ze {
+                background-image: url(ZenithAd.PNG);
+            }
+            figure a.ca {
+                background-image: url(TanOakSanRafael.PNG);
+            }
         </style>
     </head>
     <body>
@@ -14,22 +128,102 @@
         <main>
             <p>Here's a brief overview of my life so far:</p>
             <ul>
-            <li>Born the 9<sup>th</sup> of March, 1973 in <a href="http://www.honolulu.gov/">Honolulu</a>, <a href="http://www.gohawaii.com/">Hawai&#699;i</a>, the second child of Peter and Renda McCaughan (the first being <a title="David's Site" href="http://davidmccaughan.com/">David</a>).</li>
-            <li>Moved five months later to <a href="http://www.cityofsanrafael.org/">San Rafael</a>, <a href="http://www.ca.gov/">California</a>. Spent the next 10 years there.</li>
-            <li>Moved to <a href="http://www.wiltonct.org/">Wilton</a>, <a href="http://www.ct.gov/">Connecticut</a> in December of 1983. Saw <a href="http://nsidc.org/snow/">snow</a> for the first time.</li>
-            <li>Graduated in 1991 from <a href="http://www.wiltonps.org/wilton-high-school">Wilton High School</a>.</li>
-            <li>Enrolled in the <a href="http://engineering.umass.edu/">College of Engineering</a> of the <a href="http://www.umass.edu/">University of Massachusetts, Amherst</a>.</li>
-            <li>One semester later, left engineering for the <a href="http://www.umass.edu/theater/">Department of Theater</a> (phew).</li>
-            <li>Two years later, moved back in with the parents, who had since moved to <a href="http://www.edenprairie.org/">Eden Prairie</a>, <a href="https://mn.gov/portal/">Minnesota</a>.</li>
-            <li>While completing my Bachelor of Arts in <a href="https://cla.umn.edu/theatre">Theater</a> at the <a href="https://twin-cities.umn.edu/">University of Minnesota, Twin Cities</a>, started work at <a href="http://www.regiscorp.com">Regis Corporation</a>.</li>
-            <li>From 1994 to 2005, I worked in a variety of positions, culminating in Web Developer for the intranet. I built a couple of sites accessible outside their network, but they have since been redesigned.</li>
-            <li>In 2005, I left Regis and started at <a href="http://www.rustconsulting.com/">Rust Consulting, Inc.</a>. I was a full-time employee, although my title was Technical Consultant. Don't ask me. I built a number of web sites, although none I'll link to, as they were for class action lawsuits and I really don't want to go there.</li>
-            <li>August 20, 2007 brought my move to the true consulting world when I joined <a href="http://www.magenic.com/">Magenic Technologies</a>. I'm still a full-time employee, but I go out to clients, bill and all that good stuff. I consider it the best of both worlds.</li>
-            <li>On August 1, 2017 I transferred to the New York office of Magenic, continuing my tradition of making changes in my life every 10 years or so. I'm now living in <a href="https://www.stamfordct.gov/">Stamford</a>, <a href="http://www.ct.gov/">Connecticut</a>, a mere 15 miles from where I once lived.</li>
+                    <li class="year-1">1973</li>
+                    <li class="year-1">
+                    Born the 9<sup>th</sup> of March, 1973 in 
+                    <a href="http://www.honolulu.gov/">Honolulu</a>, 
+                    <a href="http://www.gohawaii.com/">Hawai&#699;i</a>, 
+                    the second child of Peter and Renda McCaughan (the first being 
+                    <a title="David's Site" href="http://davidmccaughan.com/">David</a>).
+                </li>
+                <li class="year-10">1973-1983</li>
+                <li class="year-10">
+                    <figure>
+                        <a class="ca" href="TanOakSanRafael.PNG"></a>
+                        <figcaption>Google Street View of our old house.</figcaption>
+                    </figure>
+                    Moved five months later to 
+                    <a href="http://www.cityofsanrafael.org/">San Rafael</a>, 
+                    <a href="http://www.ca.gov/">California</a>. 
+                    Spent the next 10 years there. 
+                    Was "freezing" when in got down to 50&deg;F.
+                </li>
+                <li class="year-7">1983-1991</li>
+                <li class="year-7">
+                    <figure>
+                        <a class="ze" href="ZenithAd.PNG"></a>
+                        <figcaption>Ad for the type of Zenith "IBM PC-Compatible" computer my family owned. Click to see larger.</figcaption>
+                    </figure>
+                    Moved to <a href="http://www.wiltonct.org/">Wilton</a>, 
+                    <a href="http://www.ct.gov/">Connecticut</a> in December of 1983. 
+                    Saw <a href="http://nsidc.org/snow/">snow</a> for the first time. 
+                    Was "freezing" when in got down to 20&deg;F.
+                    My family got its first computer, a Zenith&reg; Z-100 (I think.. this was a while ago).
+                    Started programming in <a href="https://en.wikipedia.org/wiki/GW-BASIC">GW-BASIC</a>.
+                </li>
+                <li class="year-1">1991</li>
+                <li class="year-1">
+                    Graduated in 1991 from 
+                    <a href="http://www.wiltonps.org/wilton-high-school">Wilton High School</a>.
+                </li>
+                <li class="year-1">1991</li>
+                <li class="year-1">
+                    Enrolled in the 
+                    <a href="http://engineering.umass.edu/">College of Engineering</a> of the 
+                    <a href="http://www.umass.edu/">University of Massachusetts, Amherst</a>.
+                </li>
+                <li class="year-2">1991</li>
+                <li class="year-2">
+                    One semester later, left engineering for the 
+                    <a href="http://www.umass.edu/theater/">Department of Theater</a> (phew).
+                </li>
+                <li class="year-1">1993</li>
+                <li class="year-1">
+                    Two years later, moved back in with the parents, who had since moved to 
+                    <a href="http://www.edenprairie.org/">Eden Prairie</a>, 
+                    <a href="https://mn.gov/portal/">Minnesota</a>.  Was "freezing" when in got down to -20&deg;F.
+                </li>
+                <li class="year-1">1994</li>
+                <li class="year-1">
+                    While completing my Bachelor of Arts in 
+                    <a href="https://cla.umn.edu/theatre">Theater</a> at the 
+                    <a href="https://twin-cities.umn.edu/">University of Minnesota, Twin Cities</a>, 
+                    started work at <a href="http://www.regiscorp.com">Regis Corporation</a>.
+                </li>
+                <li class="year-11">1994-2005</li>
+                <li class="year-11">
+                    From 1994 to 2005, I worked in a variety of positions, culminating in 
+                    Web Developer for the intranet. I built a couple of sites accessible outside 
+                    their network, but they have since been redesigned.
+                </li>
+                <li class="year-2">2005-2007</li>
+                <li class="year-2">
+                    In 2005, I left Regis and started at 
+                    <a href="http://www.rustconsulting.com/">Rust Consulting, Inc.</a>. 
+                    I was a full-time employee, although my title was Technical Consultant. 
+                    Don't ask me. I built a number of web sites, although none I'll link to, 
+                    as they were for class action lawsuits and I really don't want to go there.
+                </li>
+                <li class="year-10">2007-present</li>
+                <li class="year-10">
+                    August 20, 2007 brought my move to the true consulting world when I joined 
+                    <a href="http://www.magenic.com/">Magenic Technologies</a>. I'm still a 
+                    full-time employee, but I go out to clients, bill and all that good stuff. 
+                    I consider it the best of both worlds.
+                </li>
+                <li class="year-1">2017</li>
+                <li class="year-1">
+                    On August 1, 2017 I transferred to the New York office of Magenic, continuing 
+                    my tradition of making changes in my life every 10 years or so. I'm now living 
+                    in <a href="https://www.stamfordct.gov/">Stamford</a>, 
+                    <a href="http://www.ct.gov/">Connecticut</a>, a mere 15 miles from where I 
+                    once lived. Am "freezing" when in gets down to 20&deg;F.
+                </li>
             </ul>
         </main>
         <footer>
-            Want to know more? Email me (cv at the domain of this page), or visit <a href="http://www.heretic-monkey.com/">one of my personal sites</a>.
+            <p>Want to know more? Email me (cv at the domain of this page), or visit <a href="http://www.heretic-monkey.com/">one of my personal sites</a>.</p>
+            <small>Written and designed by Mike McCaughan. Content &copy; Mike McCaughan. <br/>Design licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a> a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small>
         </footer>
     </body>
 </html>
