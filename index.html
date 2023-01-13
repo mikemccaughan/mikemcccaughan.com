@@ -38,6 +38,7 @@
         padding: 1rem var(--padding-sides);
         margin: 0 var(--neg-padding-sides);
         flex: 1 1 auto;
+        max-height: 3.1875rem;
       }
       footer {
         background-color: var(--color-dark);
@@ -45,6 +46,10 @@
         padding: 1rem var(--padding-sides);
         margin: 0 var(--neg-padding-sides);
         flex: 1 1 auto;
+        position: fixed;
+        max-height: 8.0625rem;
+        bottom: 0;
+        width: 100%;
       }
       footer > p {
         line-height: 1.458;
@@ -56,9 +61,10 @@
         font-size: 0.75rem;
       }
       main {
-        flex: 4 4 100%;
+        flex: 1 1 auto;
         display: flex;
         flex-flow: column nowrap;
+        max-height: calc(100vh - 11.25rem);
       }
       main > p {
         --line-height: 1.458;
@@ -86,6 +92,15 @@
       main > ul > li:nth-child(even) {
         /* text display */
         flex: 1 1 90%;
+        padding: 0.5rem;
+        border-top: 1px;
+        border-right: 2px;
+        border-bottom: 2px;
+        border-left: 1px;
+        border-radius: 4px 4px 8px 8px;
+        border-color: var(--color-dark);
+        border-style: solid;
+        margin-bottom: 0.5rem;
       }
       main > ul {
         --height-by-years: calc(100% / 75);
@@ -143,6 +158,7 @@
       .lg-hide {
         display: none;
       }
+
       @media (max-width: 450px) {
         .sm-hide {
           display: none;
@@ -171,9 +187,9 @@
           flex: 1 1 100%;
           padding: 0.5rem;
           border-top: 1px;
+          border-right: 2px;
           border-bottom: 2px;
           border-left: 1px;
-          border-right: 2px;
           border-radius: 4px 4px 8px 8px;
           border-color: var(--color-dark);
           border-style: solid;
@@ -319,7 +335,7 @@
           that made acquisition by Softvision tolerable by Magenic employees,
           thereby triggering me (and many others) to tender my resignation.
         </li>
-        <li class="year-7">2023-present</li>
+        <li class="year-7">2023-now</li>
         <li class="year-7">
           A short while after leaving Cognizant, I applied for, received, and
           accepted an offer of contract work for
