@@ -4,22 +4,21 @@
     <title>MikeMcCaughan.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      html, 
-      body, 
-      header, 
-      main, 
-      ul, 
-      li, 
+      html,
+      body,
+      header,
+      main,
+      ul,
+      li,
       sup,
       a,
-      figure, 
+      figure,
       figcaption,
       strong,
       footer,
       small,
       br,
-      img
-      {
+      img {
         box-sizing: border-box;
       }
       html {
@@ -100,11 +99,11 @@
       main > ul > li {
         list-style-type: none;
       }
-      main > ul > li:nth-child(odd) {
+      main > ul > li.year {
         /* year display */
         flex: 1 1 10%;
       }
-      main > ul > li:nth-child(even) {
+      main > ul > li.year-details {
         /* text display */
         flex: 1 1 90%;
         padding: 0.5rem;
@@ -116,6 +115,8 @@
         border-color: var(--color-dark);
         border-style: solid;
         margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
       }
       main > ul {
         --height-by-years: calc(100% / 75);
@@ -138,8 +139,13 @@
       .year-11 {
         min-height: calc(var(--height-by-years) * 11);
       }
+      main > ul > li.year-details > p {
+        flex-basis: 100%;
+      }
+      main > ul > li.year-details > figure {
+        order: 2;
+      }
       figure {
-        float: right;
         height: 100%;
         max-width: 147px;
         margin: 0 var(--padding-sides);
@@ -195,12 +201,12 @@
         main > ul > li {
           display: block;
         }
-        main > ul > li:nth-child(odd) {
+        main > ul > li.year {
           /* year display */
           flex: 1 1 100%;
           padding: 0.25rem;
         }
-        main > ul > li:nth-child(even) {
+        main > ul > li.year-details {
           /* text display */
           flex: 1 1 100%;
           padding: 0.5rem;
@@ -212,12 +218,26 @@
           border-color: var(--color-dark);
           border-style: solid;
         }
-        main > ul > li:nth-child(odd):is(.year-2, .year-7, .year-10, .year-11) {
+        main
+          > ul
+          > li.year-details:is(
+            .year-2,
+            .year-3,
+            .year-7,
+            .year-10,
+            .year-11
+          ) {
           min-height: var(--height-by-years);
         }
         main
           > ul
-          > li:nth-child(even):is(.year-2, .year-7, .year-10, .year-11) {
+          > li.year-details:is(
+            .year-2,
+            .year-3,
+            .year-7,
+            .year-10,
+            .year-11
+          ) {
           max-height: max-content;
         }
       }
@@ -228,27 +248,32 @@
     <main>
       <p>Here's a brief overview of my life so far:</p>
       <ul>
-        <li class="year-1">1973</li>
-        <li class="year-1">
-          Born the 9<sup>th</sup> of March, 1973 in
-          <a href="http://www.honolulu.gov/">Honolulu</a>,
-          <a href="http://www.gohawaii.com/">Hawai&#699;i</a>, the second child
-          of Peter and Renda McCaughan (the first being
-          <a title="David's Site" href="http://davidmccaughan.com/">David</a>).
+        <li class="year year-1">1973</li>
+        <li class="year-details year-1">
+          <p>
+            Born the 9<sup>th</sup> of March, 1973 in
+            <a href="http://www.honolulu.gov/">Honolulu</a>,
+            <a href="http://www.gohawaii.com/">Hawai&#699;i</a>, the second
+            child of Peter and Renda McCaughan (the first being
+            <a title="David's Site" href="http://davidmccaughan.com/">David</a
+            >).
+          </p>
         </li>
-        <li class="year-10">1973-1983</li>
-        <li class="year-10">
+        <li class="year year-10">1973-1983</li>
+        <li class="year-details year-10">
           <figure>
             <a class="ca" href="TanOakSanRafael.PNG"></a>
             <figcaption>Google Street View of our old house.</figcaption>
           </figure>
-          Moved five months later to
-          <a href="http://www.cityofsanrafael.org/">San Rafael</a>,
-          <a href="http://www.ca.gov/">California</a>. Spent the next 10 years
-          there. Was "freezing" when in got down to 50&deg;F.
+          <p>
+            Moved five months later to
+            <a href="http://www.cityofsanrafael.org/">San Rafael</a>,
+            <a href="http://www.ca.gov/">California</a>. Spent the next 10 years
+            there. Was "freezing" when in got down to 50&deg;F.
+          </p>
         </li>
-        <li class="year-7">1983-1991</li>
-        <li class="year-7">
+        <li class="year year-7">1983-1991</li>
+        <li class="year-details year-7">
           <figure>
             <a class="ze" href="ZenithAd.PNG"></a>
             <figcaption>
@@ -256,130 +281,162 @@
               owned. Click to see larger.
             </figcaption>
           </figure>
-          Moved to <a href="http://www.wiltonct.org/">Wilton</a>,
-          <a href="http://www.ct.gov/">Connecticut</a> in
-          <span class="sm-hide">December of 1983</span
-          ><span class="lg-hide">12/1983</span>.
-          <span class="sm-hide"
-            >Saw <a href="http://nsidc.org/snow/">snow</a> for the first time. </span
-          >Was "freezing" when in got down to 20&deg;F.
-          <span class="sm-hide">My family got its</span
-          ><span class="lg-hide">Got our</span> first
-          <span class="sm-hide">computer</span><span class="lg-hide">PC</span>,
-          a Zenith&reg; Z-100<span class="sm-hide">
-            (I think&hellip; this was a while ago)</span
-          >. Started <span class="sm-hide">programming</span
-          ><span class="lg-hide">coding</span> in
-          <a href="https://en.wikipedia.org/wiki/GW-BASIC">GW-BASIC</a>.
-        </li>
-        <li class="year-1">1991</li>
-        <li class="year-1">
-          Graduated in 1991 from
-          <a href="http://www.wiltonps.org/wilton-high-school"
-            >Wilton High School</a
-          >.
-        </li>
-        <li class="year-1">1991</li>
-        <li class="year-1">
-          Enrolled in the
-          <a href="http://engineering.umass.edu/">College of Engineering</a> of
-          the
-          <a href="http://www.umass.edu/"
-            >University of Massachusetts, Amherst</a
-          >.
-        </li>
-        <li class="year-2">1991</li>
-        <li class="year-2">
-          One semester later, left engineering for the
-          <a href="http://www.umass.edu/theater/">Department of Theater</a>
-          (phew).
-        </li>
-        <li class="year-1">1993</li>
-        <li class="year-1">
-          Two years later, moved back in with the parents, who had since moved
-          to
-          <a href="http://www.edenprairie.org/">Eden Prairie</a>,
-          <a href="https://mn.gov/portal/">Minnesota</a>. Was "freezing" when in
-          got down to -20&deg;F.
-        </li>
-        <li class="year-1">1994</li>
-        <li class="year-1">
-          While completing my Bachelor of Arts in
-          <a href="https://cla.umn.edu/theatre">Theater</a> at the
-          <a href="https://twin-cities.umn.edu/"
-            >University of Minnesota, Twin Cities</a
-          >, started work at
-          <a href="http://www.regiscorp.com">Regis Corporation</a>.
-        </li>
-        <li class="year-11">1994-2005</li>
-        <li class="year-11">
-          From 1994 to 2005, I worked in a variety of positions, culminating in
-          Web Developer for the intranet. I built a couple of sites accessible
-          outside their network, but they have since been redesigned.
-        </li>
-        <li class="year-2">2005-2007</li>
-        <li class="year-2">
-          In 2005, I left Regis and started at
-          <a href="http://www.rustconsulting.com/">Rust Consulting, Inc.</a>. I
-          was a full-time employee, although my title was Technical Consultant.
-          Don't ask me. I built a number of web sites, although none I'll link
-          to, as they were for class action lawsuits and I really don't want to
-          go there.
-        </li>
-        <li class="year-10">2007-2017</li>
-        <li class="year-10">
-          August 20, 2007 brought my move to the true consulting world when I
-          joined
-          <a href="http://www.magenic.com/">Magenic Technologies</a>. I'm still
-          a full-time employee, but I go out to clients, bill and all that good
-          stuff. I consider it the best of both worlds.
-        </li>
-        <li class="year-7">2017-2021</li>
-        <li class="year-7">
-          On August 1, 2017 I transferred to the New York office of Magenic,
-          continuing my tradition of making changes in my life every 10 years or
-          so. I'm now living in
-          <a href="https://www.stamfordct.gov/">Stamford</a>,
-          <a href="http://www.ct.gov/">Connecticut</a>, a mere 15 miles from
-          where I once lived.&nbsp;Am "freezing" when in gets down to 20&deg;F.
-        </li>
-        <li class="year-3">2021-2022</li>
-        <li class="year-3">
           <p>
-          On May 1, 2021 Magenic was acquired by
-          <a href="https://cognizantsoftvision.com/">Cognizant Softvision</a>.
-          In late 2022, <a href="https://cognizant.com/">Cognizant</a> began the
-          process of consolidating the Softvision brand into its base Cognizant
-          brand. Part of this consolidation was a removal of some of the aspects
-          that made acquisition by Softvision tolerable by Magenic employees,
-          thereby triggering me (and many others) to tender my resignation.
+            Moved to <a href="http://www.wiltonct.org/">Wilton</a>,
+            <a href="http://www.ct.gov/">Connecticut</a> in
+            <span class="sm-hide">December of 1983</span
+            ><span class="lg-hide">12/1983</span>.
+            <span class="sm-hide"
+              >Saw <a href="http://nsidc.org/snow/">snow</a> for the first time. </span
+            >Was "freezing" when in got down to 20&deg;F.
+            <span class="sm-hide">My family got its</span
+            ><span class="lg-hide">Got our</span> first
+            <span class="sm-hide">computer</span
+            ><span class="lg-hide">PC</span>, a Zenith&reg; Z-100<span
+              class="sm-hide"
+            >
+              (I think&hellip; this was a while ago)</span
+            >. Started <span class="sm-hide">programming</span
+            ><span class="lg-hide">coding</span> in
+            <a href="https://en.wikipedia.org/wiki/GW-BASIC">GW-BASIC</a>.
           </p>
-          <p>Also, moved in with my dad, in <a href="https://www.newmilford.org/">New Milford</a>, CT. It's a
-          bit further into the boonies, but closer to my brother and his family, so
-          I get some good home-cooked meals sometimes.</p>
         </li>
-        <li class="year-2">2023-2024</li>
-        <li class="year-2">
-          A short while after leaving Cognizant, I applied for, received, and
-          accepted an offer of contract work for
-          <a href="https://www.polaris.com/en-us/">Polaris, Inc.</a>, a
-          manufacturer of motorized vehicles. Despite being headquartered in
-          Medina, MN, I'll be staying in Connecticut, working remotely (for
-          <a href="https://iriscc.com/">IRIS Consulting</a>, at least until they
-          decide they want me full-time because I'm so awesome 😁).
+        <li class="year year-1">1991</li>
+        <li class="year-details year-1">
+          <p>
+            Graduated in 1991 from
+            <a href="http://www.wiltonps.org/wilton-high-school"
+              >Wilton High School</a
+            >.
+          </p>
         </li>
-        <li class="year-1">2004-now</li>
-        <li class="year-1">
-          Alas, Polaris, Inc. didn't see the light, so to speak, and a few months
-          short of the two year mark, decided to let me go. Currently, <strong>in 
-          the market for a new remote position</strong>!
+        <li class="year year-1">1991</li>
+        <li class="year-details year-1">
+          <p>
+            Enrolled in the
+            <a href="http://engineering.umass.edu/">College of Engineering</a>
+            of the
+            <a href="http://www.umass.edu/"
+              >University of Massachusetts, Amherst</a
+            >.
+          </p>
+        </li>
+        <li class="year year-2">1991</li>
+        <li class="year-details year-2">
+          <p>
+            One semester later, left engineering for the
+            <a href="http://www.umass.edu/theater/">Department of Theater</a>
+            (phew).
+          </p>
+        </li>
+        <li class="year year-1">1993</li>
+        <li class="year-details year-1">
+          <p>
+            Two years later, moved back in with the parents, who had since moved
+            to
+            <a href="http://www.edenprairie.org/">Eden Prairie</a>,
+            <a href="https://mn.gov/portal/">Minnesota</a>. Was "freezing" when
+            in got down to -20&deg;F.
+          </p>
+        </li>
+        <li class="year year-1">1994</li>
+        <li class="year-details year-1">
+          <p>
+            While completing my Bachelor of Arts in
+            <a href="https://cla.umn.edu/theatre">Theater</a> at the
+            <a href="https://twin-cities.umn.edu/"
+              >University of Minnesota, Twin Cities</a
+            >, started work at
+            <a href="http://www.regiscorp.com">Regis Corporation</a>.
+          </p>
+        </li>
+        <li class="year year-11">1994-2005</li>
+        <li class="year-details year-11">
+          <p>
+            From 1994 to 2005, I worked in a variety of positions, culminating
+            in Web Developer for the intranet. I built a couple of sites
+            accessible outside their network, but they have since been
+            redesigned.
+          </p>
+        </li>
+        <li class="year year-2">2005-2007</li>
+        <li class="year-details year-2">
+          <p>
+            In 2005, I left Regis and started at
+            <a href="http://www.rustconsulting.com/">Rust Consulting, Inc.</a>.
+            I was a full-time employee, although my title was Technical
+            Consultant. Don't ask me. I built a number of web sites, although
+            none I'll link to, as they were for class action lawsuits and I
+            really don't want to go there.
+          </p>
+        </li>
+        <li class="year year-10">2007-2017</li>
+        <li class="year-details year-10">
+          <p>
+            August 20, 2007 brought my move to the true consulting world when I
+            joined
+            <a href="http://www.magenic.com/">Magenic Technologies</a>. I'm
+            still a full-time employee, but I go out to clients, bill and all
+            that good stuff. I consider it the best of both worlds.
+          </p>
+        </li>
+        <li class="year year-7">2017-2021</li>
+        <li class="year-details year-7">
+          <p>
+            On August 1, 2017 I transferred to the New York office of Magenic,
+            continuing my tradition of making changes in my life every 10 years
+            or so. I'm now living in
+            <a href="https://www.stamfordct.gov/">Stamford</a>,
+            <a href="http://www.ct.gov/">Connecticut</a>, a mere 15 miles from
+            where I once lived.&nbsp;Am "freezing" when in gets down to
+            20&deg;F.
+          </p>
+        </li>
+        <li class="year year-3">2021-2022</li>
+        <li class="year-details year-3">
+          <p>
+            On May 1, 2021 Magenic was acquired by
+            <a href="https://cognizantsoftvision.com/">Cognizant Softvision</a>.
+            In late 2022, <a href="https://cognizant.com/">Cognizant</a> began
+            the process of consolidating the Softvision brand into its base
+            Cognizant brand. Part of this consolidation was a removal of some of
+            the aspects that made acquisition by Softvision tolerable by Magenic
+            employees, thereby triggering me (and many others) to tender my
+            resignation.
+          </p>
+          <p>
+            Also, moved in with my dad, in
+            <a href="https://www.newmilford.org/">New Milford</a>, CT. It's a
+            bit further into the boonies, but closer to my brother and his
+            family, so I get some good home-cooked meals sometimes.
+          </p>
+        </li>
+        <li class="year year-2">2023-2024</li>
+        <li class="year-details year-2">
+          <p>
+            A short while after leaving Cognizant, I applied for, received, and
+            accepted an offer of contract work for
+            <a href="https://www.polaris.com/en-us/">Polaris, Inc.</a>, a
+            manufacturer of motorized vehicles. Despite being headquartered in
+            Medina, MN, I'll be staying in Connecticut, working remotely (for
+            <a href="https://iriscc.com/">IRIS Consulting</a>, at least until
+            they decide they want me full-time because I'm so awesome 😁).
+          </p>
+        </li>
+        <li class="year year-1">2004-now</li>
+        <li class="year-details year-1">
+          <p>
+            Alas, Polaris, Inc. didn't see the light, so to speak, and a few
+            months short of the two year mark, decided to let me go. Currently,
+            <strong>in the market for a new remote position</strong>!
+          </p>
         </li>
       </ul>
     </main>
     <footer>
       <p>
         Want to know more? Email me (cv at the domain of this page), or visit
-        <a href="http://www.heretic-monkey.com/">one of my personal sites</a>.
+        <a href="https://heretic-monkey.com/">one of my personal sites</a>.
       </p>
       <small
         >Written and designed by Mike McCaughan. Content &copy; Mike McCaughan.
